@@ -36,3 +36,21 @@ Open project folder with terminal and run:
 
 **Password:**
 `admin`
+
+## Future innovations
+
+**- Web editor for files**
+
+**- Web console for admins**
+
+**- Update productivity**
+
+**- New security optimization**
+
+**- Source optimization**
+
+**- Adaptive web interface**
+
+**- Special versions for Linux/Android/MacOS**
+
+**- Different language support**
