@@ -12,7 +12,7 @@ You can control diferent shared dirs for every user. <br>
 With PIGEON sharing files become easier than exit from VIM 😂.
 
 <p align="center">
-  <img src="" alt="Pigeon screenshot">
+  <img src="https://pbs.twimg.com/media/FPrN2TrXMAQur3-?format=png&name=small" alt="Pigeon screenshot">
 </p>
 
 ## Installation
