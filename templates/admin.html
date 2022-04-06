@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}
+Admin
+{% endblock %}
+
+{% block header %}
+<a href="/signup" class="button btn-create-user">Create User</a>
+{% endblock %}
+
+{% block admin_navigation %}
+{% if current_user.isAdmin %}
+<div class="admin_nav">
+    <nav class="content admin_navigation">
+        <a href="/" class="text text_nav">Home</a>
+        <a href="/admin" class="text text_nav">Admin</a>
+        <a href="/profile" class="text text_nav">Profile</a>
+        <a href="/users" class="text text_nav">Users</a>
+    </nav>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<h1 class="text sh-text">Shared directory:</h1>
+{% with messages = get_flashed_messages() %}
+{% if messages %} 
+    <div class="message error">   
+        <h2>{{ messages[0] }}.</h2>
+    </div>
+{% endif %}
+{% endwith %}
+
+<div class="shared-dirs" id="shared-dirs">
+    {% for shared_folder in shared_folders %}
+    <div class="shared-dir">
+        <form  method="POST" action="/update/{{ shared_folder.id }}" class="shared-form">
+            <div class="fields">
+                <div class="input-block">
+                    <input class="input" type="text" name="path" placeholder="Folder path" value="{{ shared_folder.path }}">
+                </div>  
+                <div class="input-block">
+                    <input class="input" type="text" name="users" placeholder="Allow users" value="{{ shared_folder.users }}">
+                </div> 
+            </div>            
+            <div class="change-form">
+                <input type="submit" class="button btn-action btn-save" value="Update">
+                <a href="/unshare/{{ shared_folder.id }}" class="button btn-action btn-unshare">Unshare</a>
+            </div>            
+        </form>
+    </div>
+    {% endfor %}
+</div>
+<button class="button btn-new-share-dir" id="btn-new-share-dir"><img src="{{url_for('static', filename='imgs/add_new.png')}}">Share new</button>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}

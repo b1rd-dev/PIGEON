@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+SignUP
+{% endblock %}
+
+{% block content %}
+
+<h1 class="text lg-text">Sign UP:</h1>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div class="message error">
+        {{ messages[0] }}
+    </div>
+{% endif %}
+{% endwith %}
+<form method="POST" action="/signup" class="form">
+
+    <h1 class="text text-placeholder">Login:</h1>
+    <input class="input" type="text" name="name" placeholder="Username" autofocus="">
+    <h1 class="text text-placeholder">Password:</h1>
+    <input class="input" type="password" name="password" placeholder="Password">
+    <h1 class="text text-placeholder">Admin:</h1>
+    <label class="checkbox">
+        <input class="checkbox_input" type="checkbox" name="isAdmin">
+        <span class="slider"></span>
+    </label>
+
+    <div class="change-form ">
+        <button class="button btn-signup">Sign Up</button>
+    </div>
+</form>
+
+{% endblock %}

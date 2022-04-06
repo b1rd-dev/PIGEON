@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block header %}
+<h1 class="text">Hello, <a href="/profile">{{ current_user.username }}</a></h1>
+<a href="/logout" class="text">Logout</a>
+{% endblock %}
+
+
+
+{% block admin_navigation %}
+{% if current_user.isAdmin %}
+<div class="admin_nav">
+    <nav class="content admin_navigation">
+        <a href="/" class="text text_nav">Home</a>
+        <a href="/admin" class="text text_nav">Admin</a>
+        <a href="/profile" class="text text_nav">Profile</a>
+        <a href="/users" class="text text_nav">Users</a>
+    </nav>
+</div>
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+<h1 class="text sh-text">Shared directories:</h1>
+{% with messages = get_flashed_messages() %}
+    {% if messages[0] %}
+    <div class="message error">
+        {{ messages[0] }}
+    </div>
+{% endif %}
+{% endwith %}
+
+
+
+
+
+<h2 class="text shr-text">/{{ wam }}</h2>
+<div class="control-panel">
+    {% if subdir %}
+    <a href="/{{ back }}" class="button button-back">Back</a>
+    {% endif %}
+    <button class="button button-upload-file">Upload file</button>
+</div>
+<div class="shared-view">
+    {% for file in files %}    
+    <a href="{% if file.is_dir %}/upload{{ file.web_path }}{% else %}/{{ file.web_path }}{% endif %}">
+        <div class="share-block">
+            <img src="{% if file.is_dir %}{{url_for('static', filename='imgs/folder-icon.png')}}{% else %}{{url_for('static', filename='imgs/file-icon.png')}}{% endif %}" alt="icon" class="share-logo">
+            <h2 class="text item-name">{{ file.name }}</h2>
+        </div>  
+    </a>      
+    {% endfor %}
+    
+</div>
+{% endblock %}

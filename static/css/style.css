@@ -1,0 +1,294 @@
+body{    
+    font-family: "Ubuntu";
+    background-color: #222831;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll; 
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.header{
+    background-color: #1A1A1B;
+    width: 100%;
+}
+.text{
+    color: #fff;
+    font-weight: 900;
+    font-size: 40px;
+}
+.content{
+    width: 80%;
+    margin: auto;
+    height: max-content;
+}
+.button{
+    color: #fff;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 30px;
+    padding: 12px 90px;
+    border: #000 solid 3px;
+}
+
+.logo-text{
+    color: #ADFF00;
+}
+.header-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.admin_nav{
+    width: 100%;
+    background-color: #517700;
+    padding: 20px 0px;
+}
+.admin_navigation{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
+.text_nav{
+    font-size: 25px;
+}
+.text-placeholder{
+    font-size: 20px;
+    margin-bottom: 0;
+    margin-top: 30px;
+}
+.body-content{
+    padding-top: 20px;
+}
+.btn-create-user{
+    background-color: #517700;
+}
+.shared-dir{
+    width: 100%;
+    align-items: center;
+    background-color: #393E46;
+    border: #000 solid 3px;
+    padding: 20px 50px;
+    margin-top: 20px;
+}
+.fields{
+    width: 68%;
+}
+.shared-form{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.btn-select{
+    padding: 9px 60px;
+    margin-left: -2px;
+    font-size: 30px;
+    background-color: #1A1A1B;
+    border-radius: 0;
+}
+.btn-new-share-dir{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 450px;
+    margin: 20px 0;
+    border-radius: 0;
+    background-color: #393E46;
+}
+.input,
+.input:focus{
+    color: #fff;
+    font-size: 30px;
+    background-color: #222831;
+    border: #000 solid 2px;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.input-block{
+    display: flex;
+    align-items: center;
+}
+.input_disabled{
+    cursor: not-allowed;
+}
+.change-form{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-between;
+    margin: auto;
+}
+.btn-action{
+    padding: 12px 0;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.btn-save,
+.btn-login,
+.btn-signup{
+    background-color: #517700;
+}
+.btn-unshare,
+.btn-delete{
+    background-color: #AD0000;
+}
+.message{
+    width: 100%;
+    margin-top: 40px;
+    color: #fff;
+    font-size: 30px;
+    border: 3px solid #000;
+    padding: 20px 50px;
+}
+.error{
+    background-color: #AD0000;
+}
+.success{
+    background-color: #517700;
+}
+.form{
+    width: 100%;
+    background-color: #393E46;
+    padding: 50px 50px;
+    margin-top: 30px;
+}
+
+.form-buttons{
+    width: 40%;
+    flex-direction: row;
+}
+/* CHECKBOX */
+
+.checkbox {
+    top: 20px;
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+}
+
+.checkbox_input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 34px;
+    background-color: #892CDC;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 40px;
+    width: 40px;
+    left: 4px;
+    bottom: 5px;
+    border-radius: 50%;
+    background-color: #EEEEEE;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.checkbox_input:checked + .slider {
+    background-color: #00ADB5;
+}
+
+.checkbox_input:focus + .slider {
+    box-shadow: 0 0 1px #00ADB5;
+}
+
+.checkbox_input:checked + .slider:before {
+    -webkit-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    transform: translateX(50px);
+}
+  
+.shared-view{    
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    row-gap: 50px;
+    column-gap: 50px;
+    width: max-content;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.share-block{
+    background-color: #393E46;
+    padding: 20px;
+    border: 3px solid #000;
+    text-align: center;
+    padding-top: 50px;
+    height: 100px;
+}
+.item-name{
+    margin-top: 10px;
+    font-size: 20px;
+}
+.home-info{
+    display: flex;
+    flex-direction: column;
+}
+.home-text{
+    margin-top: 20px;
+}
+.home-button{
+    width: 20%;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    background-color: #517700;
+    border: 3px solid #000;
+    margin-top: 40px;
+    
+}
+
+.share-logo{
+    width: auto;
+    height: 50px;
+}
+.shr-text{
+    margin-top: 20px;
+    font-size: 25px;
+    color: #00ADB5;
+}
+.control-panel{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.button-upload-file{
+    background-color: #517700;
+}
+.button-select-file{
+    background-color: #892CDC;
+}
+
+.button-back{
+    background-color: yellowgreen;
+}
+.sh-text{
+    margin-bottom: 40px;
+}

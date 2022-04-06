@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+Profile - {{ current_user.username }}
+{% endblock %}
+
+{% block admin_navigation %}
+{% if current_user.isAdmin %}
+<div class="admin_nav">
+    <nav class="content admin_navigation">
+        <a href="/" class="text text_nav">Home</a>
+        <a href="/admin" class="text text_nav">Admin</a>
+        <a href="/profile" class="text text_nav">Profile</a>
+        <a href="/users" class="text text_nav">Users</a>
+    </nav>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="login">
+    <h1 class="text">Profile:</h1>
+    {% with messages = get_flashed_messages() %}
+    {% if messages[0] %}
+        <div class="message success">
+            {{ messages[0] }}
+        </div>
+    {% endif %}
+    {% endwith %}
+    <form method="POST" action="/profile" class="form">
+        <h1 class="text">Account info:</h1>
+        <h1 class="text text-placeholder">Login:</h1>
+        <input class="input input_disabled" type="name" name="name" placeholder="Your username" value="{{ current_user.username }}" disabled>
+        <h1 class="text text-placeholder">Password:</h1>
+        <input class="input" type="password" name="password" placeholder="New Password">
+        <button class="button btn-login">Update</button>
+
+    </form>
+
+</div>
+{% endblock %}

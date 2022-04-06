@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block header %}
+<h1 class="text">Hello, <a href="/profile">{{ current_user.username }}</a></h1>
+<a href="/logout" class="text">Logout</a>
+{% endblock %}
+
+
+
+{% block admin_navigation %}
+{% if current_user.isAdmin %}
+<div class="admin_nav">
+    <nav class="content admin_navigation">
+        <a href="/share" class="text text_nav">Share</a>
+        <a href="/admin" class="text text_nav">Admin</a>
+        <a href="/profile" class="text text_nav">Profile</a>
+        <a href="/users" class="text text_nav">Users</a>
+    </nav>
+</div>
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+<div class="home-info">
+    <h1 class="text home-text">Hello and wellcome, {{ current_user.username }}! </h1> 
+    <h1 class="text home-text">I`m <a href="/" class="logo-text">PIGEON</a>, powerfull server created by <a href="https://github.com/b1rd-dev" class="logo-text">B1rd</a>.</h1> 
+    <h1 class="text home-text">With me you can share files, folders and documents easier.</h1>
+    <a href="/share" class="text home-button">Shared folders</a>
+</div>
+{% endblock %}

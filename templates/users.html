@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}
+Users
+{% endblock %}
+
+{% block header %}
+<a href="/signup" class="button btn-create-user">Create User</a>
+{% endblock %}
+
+{% block admin_navigation %}
+{% if current_user.isAdmin %}
+<div class="admin_nav">
+    <nav class="content admin_navigation">
+        <a href="/" class="text text_nav">Home</a>
+        <a href="/admin" class="text text_nav">Admin</a>
+        <a href="/profile" class="text text_nav">Profile</a>
+        <a href="/users" class="text text_nav">Users</a>
+    </nav>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="login">
+    <h1 class="text">Users:</h1>
+    {% with messages = get_flashed_messages() %}
+    {% if messages[0] %}
+        <div class="message success">
+            {{ messages[0] }}
+        </div>
+    {% endif %}
+    {% endwith %}
+    {% for user in users %}
+    <form method="POST" action="/users/update/{{ user.id }}" class="form">
+        <h1 class="text">User info:</h1>
+        <h1 class="text text-placeholder">Login:</h1>
+        <input class="input" type="name" name="name" placeholder="Your username" value="{{ user.username }}">
+        <h1 class="text text-placeholder">Password:</h1>
+        <input class="input" type="password" name="password" placeholder="New Password">
+        <h1 class="text text-placeholder">Admin:</h1>
+        <label class="checkbox">
+            <input class="checkbox_input" type="checkbox" name="isAdmin" {% if user.isAdmin %}checked{% endif %}>
+            <span class="slider"></span>
+        </label>
+        <div class="change-form form-buttons">
+            <a href="/users/delete/{{ user.id }}" class="button btn-delete">Delete</a>
+            <input type="submit" class="button btn-save" value="Update">
+        </div> 
+    </form>
+    {% endfor %}
+
+</div>
+{% endblock %}
